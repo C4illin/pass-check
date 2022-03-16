@@ -1,3 +1,4 @@
 /node_modules
 /pnpm-lock.yaml
-.txt
+*.txt
+/example.png

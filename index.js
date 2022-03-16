@@ -26,7 +26,7 @@ async function getNewTime() {
     return document.querySelector("div.container-fluid:nth-child(7)").innerText
   })
   fs.writeFileSync(date+".txt", text)
-  await page.screenshot({path: "example.png"})
+  // await page.screenshot({path: "example.png"})
   await browser.close()
 }
 
