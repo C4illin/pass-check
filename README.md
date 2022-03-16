@@ -1,4 +1,4 @@
-# Pass Check
+# Passport Check
 
 Automatically fetch new dates on passport time booking website and send notification.
 
