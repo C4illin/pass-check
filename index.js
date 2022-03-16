@@ -1,23 +1,25 @@
 import puppeteer from "puppeteer"
 import fetch from "node-fetch"
+import { writeFileSync } from "fs"
 
 async function getNewTime() {
   const browser = await puppeteer.launch({
     args: ["--disable-dev-shm-usage","--no-sandbox"]
   })
   const page = await browser.newPage()
+  console.log("Browser started")
   await page.setDefaultNavigationTimeout(0)
   await page.goto("https://bokapass.nemoq.se/Booking/Booking/Index/vastragotaland")
   await page.click(".btn-primary")
-  await page.waitForSelector("#AcceptInformationStorage")
+  await page.waitForSelector("#AcceptInformationStorage", {timeout: 0})
   await page.click("#AcceptInformationStorage")
   await page.click("input.btn")
-  await page.waitForSelector("label.radio:nth-child(1) > input:nth-child(1)")
+  await page.waitForSelector("label.radio:nth-child(1) > input:nth-child(1)", {timeout: 0})
   await page.click("label.radio:nth-child(1) > input:nth-child(1)")
   await page.click("input.btn")
-  await page.waitForSelector("div.controls:nth-child(1) > input:nth-child(2)")
+  await page.waitForSelector("div.controls:nth-child(1) > input:nth-child(2)", {timeout: 0})
   await page.click("div.controls:nth-child(1) > input:nth-child(2)")
-  await page.waitForSelector("div.container-fluid:nth-child(7)")
+  await page.waitForSelector("div.container-fluid:nth-child(7)", {timeout: 0})
   const date = await page.evaluate(() => {
     return document.querySelector("#datepicker").value
   })
@@ -54,10 +56,10 @@ async function getNewTime() {
     })
   }
   
-  // fs.writeFileSync(date+".txt", towrite)
+  writeFileSync(date+".txt", towrite)
   // await page.screenshot({path: "example.png"})
   await browser.close()
 }
 
 getNewTime()
-setInterval(getNewTime, 5 * 60 * 1000) //Runs every five minutes
+setInterval(getNewTime, 7 * 60 * 1000)
