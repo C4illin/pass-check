@@ -1,8 +1,8 @@
-import launch from "puppeteer"
+import puppeteer from "puppeteer"
 import fetch from "node-fetch"
 
 async function getNewTime() {
-  const browser = await launch({
+  const browser = await puppeteer.launch({
     args: ["--disable-dev-shm-usage","--no-sandbox"]
   })
   const page = await browser.newPage()
