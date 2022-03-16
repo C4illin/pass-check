@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 import fetch from "node-fetch"
-import { writeFileSync } from "fs"
+// import { writeFileSync } from "fs"
 
 async function getNewTime() {
   const browser = await puppeteer.launch({
@@ -56,7 +56,7 @@ async function getNewTime() {
     })
   }
   
-  writeFileSync(date+".txt", towrite)
+  // writeFileSync(date+".txt", towrite)
   // await page.screenshot({path: "example.png"})
   await browser.close()
 }
