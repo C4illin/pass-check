@@ -6,6 +6,7 @@ async function getNewTime() {
     args: ["--disable-dev-shm-usage","--no-sandbox"]
   })
   const page = await browser.newPage()
+  await page.setDefaultNavigationTimeout(0)
   await page.goto("https://bokapass.nemoq.se/Booking/Booking/Index/vastragotaland")
   await page.click(".btn-primary")
   await page.waitForSelector("#AcceptInformationStorage")
