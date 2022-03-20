@@ -2,10 +2,4 @@
 
 Automatically fetch new dates on passport time booking website and send notification.
 
-https://polisen.se/tjanster-tillstand/pass-och-nationellt-id-kort/boka-tid-hitta-passexpedition/
-
-## Todo:
-1. Book times
-2. Sell on Blocket.se
-3. ???
-4. Profit
+Configure webhook and passport url and everything should work
